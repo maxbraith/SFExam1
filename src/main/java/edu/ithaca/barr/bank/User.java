@@ -4,6 +4,18 @@ import java.util.ArrayList;
 
 public class User {
     //User class
+    private boolean isFrozen;
+    private ArrayList currentBooks;
+    private String id;
+    private String password;
+
+    public User(String id, String password){
+        isFrozen = false;
+        currentBooks = new ArrayList<Book>();
+        this.id = id;
+        this.password = password;
+    }
+
 
     /**
      * @post creates and returns arrayList of books currently checked out
@@ -44,6 +56,10 @@ public class User {
      * @return book object with the inputted name
      */
     Book searchByBookName(String bookName){
+        return null;
+    }
+
+    ArrayList getCurrentBooks(){
         return null;
     }
 
