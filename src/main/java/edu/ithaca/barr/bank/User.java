@@ -28,15 +28,16 @@ public class User {
     /**
      * @post checks out book to account
      * @param bookName - name of book to check out of library
-     * @throws NullReferenceException if the limit of books checked out is reached
+     * @param library - library to checkout book from
+     * @throws NoSuchElementException if the limit of books checked out is reached
      */
-    void checkOutBook(String bookName){
+    void checkOutBook(String bookName, Library library){
     }
 
     /**
      * @post returns book that is currently checked out
      * @param bookName - name of book to return
-     * @throws NullReferenceException if book is not checked out by account
+     * @throws NoSuchelementException if book is not checked out by account
      */
     void returnBook(String bookName){
     }

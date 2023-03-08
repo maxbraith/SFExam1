@@ -7,8 +7,8 @@ public class Library {
     private ArrayList<User> frozenUsers;
     private ArrayList librarians;
     private ArrayList admins;
-    public ArrayList books;
-    private ArrayList checkedOutBooks;
+    public ArrayList<Book> books;
+    public ArrayList<Book> checkedOutBooks;
 
     public Library(){
         users = new ArrayList<User>();
