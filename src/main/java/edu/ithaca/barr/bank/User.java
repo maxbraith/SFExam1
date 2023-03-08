@@ -1,11 +1,12 @@
 package edu.ithaca.barr.bank;
 
 import java.util.ArrayList;
+import java.util.NoSuchElementException;
 
 public class User {
     //User class
     private boolean isFrozen;
-    private ArrayList currentBooks;
+    private ArrayList<Book> currentBooks;
     private String id;
     private String password;
 
@@ -32,6 +33,29 @@ public class User {
      * @throws NoSuchElementException if the limit of books checked out is reached
      */
     void checkOutBook(String bookName, Library library){
+        for(int i=0; i<library.books.size(); i++){
+            if(library.books.get(i).getBookName() == bookName){
+                this.currentBooks.add(library.books.get(i));
+                library.checkedOutBooks.add(library.books.get(i));
+                library.books.remove(library.books.get(i));
+            }
+        }
+        if(currentBooks.size()>2){
+            library.checkedOutBooks.remove(currentBooks.get(2));
+            library.books.add(currentBooks.get(2));
+            currentBooks.remove(2);
+            throw new IllegalArgumentException("Book checkout limit reached");
+        }
+        int count=0;
+        for(int i=0; i<currentBooks.size(); i++){
+            if(currentBooks.get(i).getBookName() == bookName){
+                count+=1;
+            }
+        }
+        if(count==0){
+            throw new NoSuchElementException("Book not available");
+        }
+        
     }
 
     /**
@@ -61,7 +85,7 @@ public class User {
     }
 
     ArrayList getCurrentBooks(){
-        return null;
+        return currentBooks;
     }
 
 

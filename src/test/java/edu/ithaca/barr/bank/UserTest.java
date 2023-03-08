@@ -16,11 +16,12 @@ public class UserTest{
 
 
         //Equivalence partition - book exists in library
+        //Integration Test - Classes work together in checkOutBook method
         //Adding books based on my model is done by the admin, but for the purpose of this test I will be adding manually
         Book testBook = new Book("TestBook", "Max Braithwaite");
         testLibrary.books.add(testBook);
         testUser.checkOutBook("TestBook", testLibrary);
-        assertEquals(testUser.booksCheckedOut().get(0), testBook);
+        assertEquals(testUser.getCurrentBooks().get(0), testBook);
         
         //Equivalence partition - book is already checked out
         User testUser2 = new User("123", "password");
@@ -31,9 +32,11 @@ public class UserTest{
 
         //Equivalence partition - 2 books already checked out
         Book testBook3 = new Book("TestBook3", "Ali Erkan");
+        Book testBook4 = new Book("TestBook4", "Toby Dragon");
         testLibrary.books.add(testBook3);
-        testUser.checkOutBook("TestBook2", testLibrary);
-        assertThrows(IllegalArgumentException.class, ()-> testUser.checkOutBook("testBook3", testLibrary));
+        testLibrary.books.add(testBook4);
+        testUser.checkOutBook("TestBook3", testLibrary);
+        assertThrows(IllegalArgumentException.class, ()-> testUser.checkOutBook("TestBook4", testLibrary));
         
 
 
