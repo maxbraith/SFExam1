@@ -31,7 +31,7 @@ I chose the check out book use case because I figured it was fundamental to the 
 3. Note of where to find the integration test
 The second test in the userTest file.
 
-Note: I read that it needed to be two TDD cycles, but I read that after I already wrote and pushed code. If I were to do it again I would have wrote the first two equivalence partitions, implemented, wrote the next two, then implemented again.
+Note: I read that it needed to be two TDD cycles, but I read that after I already wrote and pushed code using only one TDD cycle. If I were to do it again I would have wrote the first two equivalence partitions, implemented, wrote the next two, then implemented again.
 
 Good Luck!
 
